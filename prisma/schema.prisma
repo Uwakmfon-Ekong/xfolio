@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Video {
+  id           String   @id @default(cuid())
+  tweetId      String   @unique
+  text         String?
+  videoUrl     String
+  thumbnailUrl String?
+  tweetUrl     String?
+  views        Int      @default(0)
+  likes        Int      @default(0)
+  retweets     Int      @default(0)
+  postedAt     DateTime
+  syncedAt     DateTime @default(now())
+  tags         String[] @default([])
+  pinned       Boolean  @default(false)
+  hidden       Boolean  @default(false)
+  category     String?
+}
