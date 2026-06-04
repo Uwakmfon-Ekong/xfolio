@@ -4,12 +4,13 @@
   "private": false,
   "description": "auto-sync your X videos into a public portfolio",
   "scripts": {
-    "dev": "next dev",
-    "build": "prisma generate && next build",
-    "start": "next start",
-    "db:push": "prisma db push",
-    "db:studio": "prisma studio"
-  },
+  "dev": "next dev",
+  "build": "prisma generate && next build",
+  "start": "next start",
+  "postinstall": "prisma generate",
+  "db:push": "prisma db push",
+  "db:studio": "prisma studio"
+},
   "dependencies": {
     "@prisma/client": "^5.14.0",
     "cloudinary": "^2.10.0",
